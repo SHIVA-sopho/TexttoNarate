@@ -19,8 +19,9 @@ class SentenceGetter(object):
 			return sent
 		except Exception as e:
 			return None
+			
 			 
-
+			
 
 
 
