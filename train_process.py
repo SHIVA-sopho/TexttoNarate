@@ -1,3 +1,6 @@
+from keras.preprocessing.sequence import pad_sequences
+import numpy as np
+
 class SentenceGetter(object):
 	"""takes input data and gives out sentences"""
 	def __init__(self, data):
@@ -22,10 +25,38 @@ class SentenceGetter(object):
 			
 			 
 			
+class TestProcessor(object):
+					""" Class for handling Test data"""
+					def __init__(self, data, embeds):
+						print('inside constructor')
+						self.sentences = data.split('. ')
+						self.embeds = embeds
+						self.pad_len = 0
+						print(self.sentences)
+						for i, sent in enumerate(self.sentences):
+							self.sentences[i] = sent.split(' ')
+							#if len(self.sentences[i]) > self.pad_len:
+							#	self.pad_len = len(self.sentences[i])
+						#self.sentences = np.array(self.sentences)
+						self.pad_sequences(self.sentences,value='ghansham')
+						self.raw_sentences = self.sentences
+						for i,sent in enumerate(self.sentences):
+							self.sentences[i] =  self.get_sentence_vectors(sent)
+						self.sentences = np.array(self.sentences)
 
+					def get_sentence_vectors(self,sent):
+						rt_sent = []
+						for word in sent:
+							rt_sent.append(self.embeds.get_word_vector(word))
 
+						return rt_sent	
 
-				
+									
+										
+					def pad_sequences(self,sequences,value,max_len = 104):
+						for i,sent in enumerate(sequences):
+							for j in range(0,104-len(sent)):
+								sequences[i] += [value]
 
 
 		

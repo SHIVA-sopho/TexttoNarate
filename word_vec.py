@@ -14,6 +14,7 @@ class embeddings(object):
 				values = line.split(' ')
 				word = values[0]
 				vector = values[1:]
+				vector[-1] = vector[-1][:-1]
 				self.word_to_vec[word] = vector
 		self.embedding_length = len(list(self.word_to_vec.values())[0])
 
@@ -82,7 +83,7 @@ class embeddings(object):
 		vector = self.word_to_vec.get(word)
 
 		if vector is None:
-			vector = self.word_to_vec.get(word.lower())
+			vector = self.word_to_vec.get(str(word).lower())
 
 		if vector is not None:
 			ret_vec = vector
