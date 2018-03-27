@@ -30,13 +30,13 @@ For final App Model 2 is used.
 
 ## Tensorboard Visual 
 
-<img src="./photos/graph.png" />
+<img src="./photos/graph.png"  height="500"  />
 To view properly download it and zoom it.
 
 ## Django UI
 
 ### Text Input
-<img src='photos/main.png' />
+<img src='photos/main.png'  />
 
 ### Video Output
 
