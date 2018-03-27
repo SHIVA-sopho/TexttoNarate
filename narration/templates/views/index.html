@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+{% block content %}
+<head>
+  <link rel="stylesheet" media="screen" href="temp/css/style.css">
+  <title>Video</title>
+</head>
+<body>
+  {%load static%}
+  <div id = 'particles-js'></div>
+  <video class = "main" controls autoplay>
+    <source src="{{media}}" >
+  </video>
+<script src="temp/js/particles.js"></script>
+<script src="temp/js/app.js"></script>
+</body>
+{%endblock%}
+</html>
